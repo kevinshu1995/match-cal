@@ -4,7 +4,36 @@
 
 ---
 
-## 🎯 當前階段：階段 1-1 - scraper-core
+## 🎯 當前階段：階段 1-2 - json-manager
+
+**階段名稱**：階段 1-2 - json-manager
+**開始日期**：2025-11-06
+**完成日期**：2025-11-06
+**狀態**：✅ 已完成
+
+### 本階段目標
+
+實作 JSON 檔案讀寫與智慧合併功能。
+
+**主要任務**：
+- [x] 實作 JsonReader（讀取 JSON）
+- [x] 實作 JsonWriter（寫入 JSON）
+- [x] 實作 JsonMerger（智慧合併策略）
+- [x] 保留 customFields 不被覆蓋
+- [x] 實作 meta 資訊生成
+- [x] 測試覆蓋率達到 ≥80%（實際：95.94%）
+
+### 相關文件
+
+- [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
+- [json-manager 規格](../packages/json-manager/SPEC.md)
+- [JSON Schema](technical/JSON-SCHEMA.md)
+- [資料格式規範](technical/DATA-SCHEMA.md)
+- [TDD 工作流程](guides/TDD-WORKFLOW.md)
+
+---
+
+## ⏮️ 前一階段：階段 1-1 - scraper-core
 
 **階段名稱**：階段 1-1 - scraper-core
 **開始日期**：2025-11-06
@@ -22,41 +51,28 @@
 - [x] 實作工具函式（generateEventId, delay, retry）
 - [x] 測試覆蓋率達到 ≥85%（實際：93.28%）
 
-### 相關文件
-
-- [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
-- [scraper-core 規格](../packages/scraper-core/SPEC.md)
-- [資料格式規範](technical/DATA-SCHEMA.md)
-- [TDD 工作流程](guides/TDD-WORKFLOW.md)
-
 ---
 
-## ⏭️ 下一階段：階段 1-2 - json-manager
+## ⏭️ 下一階段：階段 1-3 - ics-generator
 
 **預計開始**：2025-11-09
-**預計工期**：3 天
+**預計工期**：4 天
 
-### 階段 1-2 目標
+### 階段 1-3 目標
 
-實作 JSON 檔案讀寫與智慧合併功能。
+生成符合 RFC 5545 規範的 ICS 檔案。
 
 **主要任務**：
-- [ ] 實作 JsonReader（讀取 JSON）
-- [ ] 實作 JsonWriter（寫入 JSON）
-- [ ] 實作 JsonMerger（智慧合併策略）
-- [ ] 保留 customFields 不被覆蓋
-- [ ] 實作 meta 資訊生成
+- [ ] 實作 IcsGenerator（生成 VCALENDAR）
+- [ ] 實作 VEventBuilder（生成 VEVENT）
+- [ ] 實作時區處理（VTIMEZONE）
+- [ ] 實作 UID 生成策略
+- [ ] 實作 VALARM（提醒）設定
 
 **相關文件**：
 - [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
-- [json-manager 規格](../packages/json-manager/SPEC.md)
-- [JSON Schema](technical/JSON-SCHEMA.md)
-
-**開發流程**：
-1. 閱讀 `packages/json-manager/SPEC.md`
-2. 遵循 TDD 循環：RED → GREEN → REFACTOR
-3. 每完成一個功能就更新此文件的進度勾選
-4. 所有任務完成後，更新此文件指向下一階段
+- [ics-generator 規格](../packages/ics-generator/SPEC.md)
+- [ICS 規格](technical/ICS-SPEC.md)
 
 ---
 
@@ -68,17 +84,30 @@
 |------|------|------|---------|
 | 0 | 文件準備階段 | ✅ 已完成 | 1 天 |
 | 1-1 | scraper-core | ✅ 已完成 | 3 天 |
-| 1-2 | json-manager | ⏸️ 未開始 | 3 天 |
+| 1-2 | json-manager | ✅ 已完成 | 3 天 |
 | 1-3 | ics-generator | ⏸️ 未開始 | 4 天 |
 | 2 | scraper-bwf | ⏸️ 未開始 | 5 天 |
 | 3 | web | ⏸️ 未開始 | 10 天 |
 | 4 | automation | ⏸️ 未開始 | 5 天 |
 
-**總進度**：階段 1-1 完成（scraper-core）✅，準備進入階段 1-2（json-manager）
+**總進度**：階段 1-1 完成（scraper-core）✅，階段 1-2 完成（json-manager）✅
 
 ---
 
 ## 📝 更新記錄
+
+### 2025-11-06（深夜）
+- 🚀 **開始階段 1-2：json-manager 開發**
+- 📝 更新 CURRENT-STAGE.md 指向階段 1-2
+- 🎯 準備建立 json-manager 開發任務清單
+- ✅ **完成 json-manager 所有功能實作**
+  - ✅ reader.js（JSON 讀取）
+  - ✅ writer.js（JSON 寫入與 meta 生成）
+  - ✅ merger.js（智慧合併與 customFields 保留）
+  - ✅ JsonManager.js（整合主類別）
+- ✅ 所有測試通過（21 tests）
+- ✅ 測試覆蓋率達標（95.94% > 80%）
+- ✅ **階段 1-2 完成！**
 
 ### 2025-11-06（晚）
 - 🚀 **開始階段 1-1：scraper-core 開發**

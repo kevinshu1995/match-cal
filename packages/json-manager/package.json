@@ -1,0 +1,29 @@
+{
+  "name": "@matchcal/json-manager",
+  "version": "0.1.0",
+  "description": "JSON 資料管理",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "json",
+    "data-manager",
+    "match-cal"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.5",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "@matchcal/scraper-core": "workspace:*"
+  }
+}
