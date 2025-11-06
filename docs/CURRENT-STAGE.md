@@ -4,7 +4,36 @@
 
 ---
 
-## 🎯 當前階段：階段 1-2 - json-manager
+## 🎯 當前階段：階段 1-3 - ics-generator
+
+**階段名稱**：階段 1-3 - ics-generator
+**開始日期**：2025-11-06
+**完成日期**：2025-11-06
+**狀態**：✅ 已完成
+
+### 本階段目標
+
+生成符合 RFC 5545 規範的 ICS 檔案。
+
+**主要任務**：
+- [x] 實作 IcsGenerator（生成 VCALENDAR）
+- [x] 實作 VEventBuilder（生成 VEVENT，使用 ics 庫）
+- [x] 實作時區處理（VTIMEZONE，使用 ics 庫）
+- [x] 實作 UID 生成策略（使用事件 ID）
+- [x] 實作 VALARM（提醒）設定（由 ics 庫處理）
+- [x] 測試覆蓋率達到 ≥80%（實際：93.61%）
+
+### 相關文件
+
+- [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
+- [ics-generator 規格](../packages/ics-generator/SPEC.md)
+- [ICS 規格](technical/ICS-SPEC.md)
+- [資料格式規範](technical/DATA-SCHEMA.md)
+- [TDD 工作流程](guides/TDD-WORKFLOW.md)
+
+---
+
+## ⏮️ 前一階段：階段 1-2 - json-manager
 
 **階段名稱**：階段 1-2 - json-manager
 **開始日期**：2025-11-06
@@ -23,56 +52,26 @@
 - [x] 實作 meta 資訊生成
 - [x] 測試覆蓋率達到 ≥80%（實際：95.94%）
 
-### 相關文件
-
-- [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
-- [json-manager 規格](../packages/json-manager/SPEC.md)
-- [JSON Schema](technical/JSON-SCHEMA.md)
-- [資料格式規範](technical/DATA-SCHEMA.md)
-- [TDD 工作流程](guides/TDD-WORKFLOW.md)
-
 ---
 
-## ⏮️ 前一階段：階段 1-1 - scraper-core
+## ⏭️ 下一階段：階段 2 - scraper-bwf
 
-**階段名稱**：階段 1-1 - scraper-core
-**開始日期**：2025-11-06
-**完成日期**：2025-11-06
-**狀態**：✅ 已完成
+**預計開始**：2025-11-10
+**預計工期**：5 天
 
-### 本階段目標
+### 階段 2 目標
 
-建立爬蟲核心框架，提供基礎設施給所有爬蟲使用。
+實作第一個實際的賽事爬蟲（BWF 羽球賽事）。
 
 **主要任務**：
-- [x] 實作 BaseScraper 抽象類別
-- [x] 實作 Scheduler（cron 排程器）
-- [x] 實作 StandardEventSchema（資料驗證）
-- [x] 實作工具函式（generateEventId, delay, retry）
-- [x] 測試覆蓋率達到 ≥85%（實際：93.28%）
-
----
-
-## ⏭️ 下一階段：階段 1-3 - ics-generator
-
-**預計開始**：2025-11-09
-**預計工期**：4 天
-
-### 階段 1-3 目標
-
-生成符合 RFC 5545 規範的 ICS 檔案。
-
-**主要任務**：
-- [ ] 實作 IcsGenerator（生成 VCALENDAR）
-- [ ] 實作 VEventBuilder（生成 VEVENT）
-- [ ] 實作時區處理（VTIMEZONE）
-- [ ] 實作 UID 生成策略
-- [ ] 實作 VALARM（提醒）設定
+- [ ] 實作 BwfScraper（繼承 BaseScraper）
+- [ ] 爬取 BWF 官方賽程網站
+- [ ] 轉換為 StandardEvent 格式
+- [ ] 整合 json-manager 和 ics-generator
 
 **相關文件**：
-- [階段 1 總覽](stages/STAGE-1-INFRASTRUCTURE.md)
-- [ics-generator 規格](../packages/ics-generator/SPEC.md)
-- [ICS 規格](technical/ICS-SPEC.md)
+- [階段 2 文件](stages/STAGE-2-FIRST-SCRAPER.md)
+- [scraper-bwf 規格](../packages/scraper-bwf/SPEC.md)
 
 ---
 
@@ -85,16 +84,29 @@
 | 0 | 文件準備階段 | ✅ 已完成 | 1 天 |
 | 1-1 | scraper-core | ✅ 已完成 | 3 天 |
 | 1-2 | json-manager | ✅ 已完成 | 3 天 |
-| 1-3 | ics-generator | ⏸️ 未開始 | 4 天 |
+| 1-3 | ics-generator | ✅ 已完成 | 4 天 |
 | 2 | scraper-bwf | ⏸️ 未開始 | 5 天 |
 | 3 | web | ⏸️ 未開始 | 10 天 |
 | 4 | automation | ⏸️ 未開始 | 5 天 |
 
-**總進度**：階段 1-1 完成（scraper-core）✅，階段 1-2 完成（json-manager）✅
+**總進度**：階段 1 完成（基礎設施層）✅ - scraper-core ✅、json-manager ✅、ics-generator ✅
 
 ---
 
 ## 📝 更新記錄
+
+### 2025-11-06（深夜 Part 2）
+- 🚀 **開始階段 1-3：ics-generator 開發**
+- 📝 更新 CURRENT-STAGE.md 指向階段 1-3
+- 🎯 準備建立 ics-generator 開發任務清單
+- ✅ **完成 ics-generator 所有功能實作**
+  - ✅ IcsGenerator.js（使用 ics 庫生成 RFC 5545 標準 ICS）
+  - ✅ 完整支援 VCALENDAR、VEVENT、VTIMEZONE
+  - ✅ UID 使用事件 ID，確保唯一性
+  - ✅ 正確處理日期、時區、分類等
+- ✅ 所有測試通過（7 tests）
+- ✅ 測試覆蓋率達標（93.61% > 80%）
+- ✅ **階段 1-3 完成！階段 1（基礎設施層）全部完成！**
 
 ### 2025-11-06（深夜）
 - 🚀 **開始階段 1-2：json-manager 開發**

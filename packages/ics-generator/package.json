@@ -1,0 +1,31 @@
+{
+  "name": "@matchcal/ics-generator",
+  "version": "0.1.0",
+  "description": "ICS 檔案生成器",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "ics",
+    "icalendar",
+    "calendar",
+    "match-cal"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.5",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "@matchcal/scraper-core": "workspace:*",
+    "ics": "^3.8.1"
+  }
+}
