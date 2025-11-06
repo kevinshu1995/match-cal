@@ -1,0 +1,30 @@
+{
+  "name": "@matchcal/scraper-core",
+  "version": "0.1.0",
+  "description": "爬蟲核心框架",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "scraper",
+    "crawler",
+    "match-cal"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.5",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "cron-parser": "^4.9.0",
+    "zod": "^3.23.8"
+  }
+}
