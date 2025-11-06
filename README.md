@@ -1,4 +1,179 @@
-# 比賽賽程自動整合行事曆專案 — 完整需求規格書
+# MatchCal - 比賽賽程自動整合行事曆
+
+> 自動化爬取比賽賽程，一鍵訂閱至個人行事曆
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+## 🎯 專案簡介
+
+MatchCal 是一個自動化比賽賽程整合平台，透過爬蟲技術自動收集各種公開比賽（羽球、籃球、足球等）的賽程資訊，並提供：
+
+- ✅ **開放式行事曆網站**：瀏覽所有賽事
+- ✅ **一鍵訂閱**：匯入至 Google/Apple/Outlook 行事曆
+- ✅ **自動更新**：定時爬取，即時同步
+- ✅ **低成本架構**：使用 GitHub Pages + GitHub Actions，完全免費
+
+---
+
+## 🚀 快速開始
+
+### 開發人員
+
+1. **查看當前開發階段**
+   ```bash
+   cat docs/CURRENT-STAGE.md
+   ```
+
+2. **閱讀開發指南**
+   - [文件入口](docs/INDEX.md)
+   - [開發指南](docs/DEVELOPMENT-GUIDE.md)
+   - [TDD 工作流程](docs/guides/TDD-WORKFLOW.md)
+
+3. **安裝相依套件**
+   ```bash
+   pnpm install
+   ```
+
+4. **開始開發**（遵循 TDD 流程）
+
+### 使用者
+
+訪問網站：https://[username].github.io/MatchCal
+
+---
+
+## 📚 專案文件
+
+### 核心文件（必讀）
+
+- [📍 文件入口](docs/INDEX.md) - 從這裡開始
+- [🎯 當前開發階段](docs/CURRENT-STAGE.md) - 查看當前進度
+- [📖 開發指南](docs/DEVELOPMENT-GUIDE.md) - 開發流程總覽
+- [🏗️ 系統架構](docs/ARCHITECTURE.md) - 技術架構說明
+
+### 技術文件
+
+- [📊 資料格式規範](docs/technical/DATA-SCHEMA.md)
+- [🔧 TDD 工作流程](docs/guides/TDD-WORKFLOW.md)
+- [➕ 新增賽事來源](docs/guides/ADD-NEW-EVENT-SOURCE.md)
+
+### 階段文件
+
+- [階段 1：基礎設施層](docs/stages/STAGE-1-INFRASTRUCTURE.md)
+
+---
+
+## 📦 Monorepo 架構
+
+```
+MatchCal/
+├── packages/
+│   ├── scraper-core/      # 爬蟲核心框架
+│   ├── json-manager/      # JSON 資料管理
+│   ├── ics-generator/     # ICS 檔案生成器
+│   ├── scraper-bwf/       # BWF 羽球賽事爬蟲
+│   └── web/               # Nuxt 4 前端網站
+├── data/                  # 賽事資料輸出
+├── docs/                  # 完整文件
+└── .github/workflows/     # GitHub Actions 自動化
+```
+
+---
+
+## 🛠️ 技術棧
+
+| 層級 | 技術 |
+|------|------|
+| 套件管理 | pnpm workspaces |
+| 爬蟲 | Node.js + Puppeteer |
+| 前端 | Nuxt 4 + Nuxt UI |
+| 測試 | Vitest + TDD |
+| CI/CD | GitHub Actions |
+| 部署 | GitHub Pages |
+
+---
+
+## 📋 開發原則
+
+本專案嚴格遵循：
+
+1. **TDD**（測試驅動開發）：🔴 RED → 🟢 GREEN → 🔵 REFACTOR
+2. **Tidy First**：結構性變更與行為變更分開 commit
+3. **低耦合設計**：Package 間透過標準化資料格式溝通
+4. **階段式開發**：不同 Package 分階段開發，不同時進行
+
+---
+
+## 🎓 開發流程
+
+```
+1. 查看 CURRENT-STAGE.md
+   ↓
+2. 閱讀該階段文件
+   ↓
+3. 閱讀 Package 規格
+   ↓
+4. TDD 開發（RED → GREEN → REFACTOR）
+   ↓
+5. 更新文件 → Commit
+   ↓
+6. 階段完成 → 進入下一階段
+```
+
+---
+
+## 📊 專案進度
+
+| 階段 | 狀態 | 說明 |
+|------|------|------|
+| 階段 0 | 🟡 進行中 | 文件準備 |
+| 階段 1-1 | ⏸️ 未開始 | scraper-core |
+| 階段 1-2 | ⏸️ 未開始 | json-manager |
+| 階段 1-3 | ⏸️ 未開始 | ics-generator |
+| 階段 2 | ⏸️ 未開始 | scraper-bwf |
+| 階段 3 | ⏸️ 未開始 | web 前端 |
+| 階段 4 | ⏸️ 未開始 | 自動化整合 |
+
+查看詳細進度：[CURRENT-STAGE.md](docs/CURRENT-STAGE.md)
+
+---
+
+## ➕ 如何新增新的賽事來源
+
+1. 複製 `scraper-bwf` 建立新 package
+2. 實作爬蟲（繼承 `BaseScraper`）
+3. 設定資料輸出路徑
+4. 設定 GitHub Actions 排程
+5. 前端新增分類
+
+詳細流程：[新增賽事來源指南](docs/guides/ADD-NEW-EVENT-SOURCE.md)
+
+**重點**：核心框架無需修改，只需新增 scraper package！
+
+---
+
+## 🤝 貢獻指南
+
+1. Fork 本專案
+2. 建立 feature branch：`git checkout -b feature/new-scraper`
+3. 遵循 TDD 開發
+4. 提交變更：`git commit -m "feat: add basketball scraper"`
+5. 推送到 branch：`git push origin feature/new-scraper`
+6. 建立 Pull Request
+
+---
+
+## 📄 授權
+
+MIT License - 詳見 [LICENSE](LICENSE)
+
+---
+
+# 原始需求規格書
+
+> 以下為原始需求規格書，保留作為參考
 
 ## 1. 專案簡介
 
