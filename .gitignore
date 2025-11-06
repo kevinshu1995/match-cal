@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/
+*.log
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
