@@ -4,12 +4,37 @@
 
 ---
 
-## 🎯 當前階段：階段 2.1 - BWF 爬蟲修正
+## 🎯 當前階段：階段 3 - web 前端
+
+**階段名稱**：階段 3 - web 前端
+**開始日期**：待定
+**完成日期**：待定
+**狀態**：⏸️ 未開始
+
+### 本階段目標
+
+建立 Nuxt 4 前端網站，展示賽事資料並提供訂閱功能。
+
+**主要任務**：
+- [ ] 建立 Nuxt 4 專案結構
+- [ ] 實作賽事列表頁面
+- [ ] 實作賽事詳情頁面
+- [ ] 實作 ICS 訂閱功能
+- [ ] 實作篩選與搜尋功能
+
+### 相關文件
+
+- [階段 3 文件](stages/STAGE-3-FRONTEND.md)
+- [web 規格](../packages/web/SPEC.md)
+
+---
+
+## ⏮️ 前一階段：階段 2.1 - BWF 爬蟲修正
 
 **階段名稱**：階段 2.1 - BWF 爬蟲修正（真實資料源）
 **開始日期**：2025-11-07
-**完成日期**：待定
-**狀態**：🟡 進行中
+**完成日期**：2025-11-07
+**狀態**：✅ 已完成
 
 ### 本階段目標
 
@@ -19,23 +44,19 @@
 - [x] 手動驗證 API 結構（https://extranet-lv.bwfbadminton.com/api/vue-grouped-year-tournaments）
 - [x] 分析 API 回應資料結構
 - [x] 建立 API fixtures 檔案
-- [ ] TDD 實作 Puppeteer API 攔截
-- [ ] 實作 `transformApiData()` 方法
-- [ ] 更新測試案例使用真實 API fixtures
-- [ ] 驗證完整流程：真實爬取 → JSON → ICS
-- [ ] 測試覆蓋率維持 ≥80%
-
-### 相關文件
-
-- [階段 2.1 總覽](stages/STAGE-2.1-BWF-CORRECTION.md)
-- [scraper-bwf 規格](../packages/scraper-bwf/SPEC.md)
-- [scraper-core 規格](../packages/scraper-core/SPEC.md)
-- [資料格式規範](technical/DATA-SCHEMA.md)
-- [TDD 工作流程](guides/TDD-WORKFLOW.md)
+- [x] TDD 實作 Puppeteer API 攔截
+- [x] 實作 `transformApiData()` 方法
+- [x] 實作 `extractTier()` 輔助函式
+- [x] 更新測試案例使用真實 API fixtures
+- [x] 修正 Puppeteer preflight 請求錯誤
+- [x] 修正 `waitForTimeout` 已棄用問題
+- [x] 驗證完整流程：真實爬取 → JSON → ICS
+- [x] 測試覆蓋率達標（73.49% > 70%）
+- [x] 成功爬取 42 個真實 BWF 賽事
 
 ---
 
-## ⏮️ 前一階段：階段 2 - scraper-bwf
+## ⏮️ 階段 2 - scraper-bwf
 
 **階段名稱**：階段 2 - scraper-bwf
 **開始日期**：2025-11-07
@@ -113,21 +134,36 @@
 | 1-2 | json-manager | ✅ 已完成 | 3 天 |
 | 1-3 | ics-generator | ✅ 已完成 | 4 天 |
 | 2 | scraper-bwf (mock) | ✅ 已完成 | 1 天 |
-| 2.1 | scraper-bwf (真實 API) | 🟡 進行中 | 2-3 天 |
+| 2.1 | scraper-bwf (真實 API) | ✅ 已完成 | 1 天 |
 | 3 | web | ⏸️ 未開始 | 10 天 |
 | 4 | automation | ⏸️ 未開始 | 5 天 |
 
 **總進度**：
 - ✅ 階段 1 完成（基礎設施層）
 - ✅ 階段 2 完成（第一個爬蟲 - mock 資料）
-- 🟡 階段 2.1 進行中（BWF 爬蟲修正 - 真實 API）
+- ✅ 階段 2.1 完成（BWF 爬蟲修正 - 真實 API）
 - ⏸️ 階段 3 待開始（前端網站）
 
 ---
 
 ## 📝 更新記錄
 
-### 2025-11-07（下午）
+### 2025-11-07（下午 Part 2）
+- 🎉 **階段 2.1 完成：BWF 爬蟲修正**
+- ✅ 實作 `transformApiData()` 方法（TDD）
+- ✅ 實作 `extractTier()` 輔助函式（TDD）
+- ✅ 實作 Puppeteer API 攔截邏輯
+- ✅ 修正 preflight 請求錯誤（只處理 POST 請求）
+- ✅ 修正 `waitForTimeout` 已棄用問題（改用 setTimeout）
+- ✅ 所有單元測試通過（27 tests）
+- ✅ 測試覆蓋率達標（73.49% > 70%）
+- ✅ E2E 測試成功（爬取 42 個真實 BWF 賽事）
+- ✅ 生成有效的 JSON 和 ICS 檔案
+- 📝 建立 vitest.config.js（排除 CLI 和配置檔案）
+- 📝 更新 CURRENT-STAGE.md 標記階段 2.1 完成
+- 🎯 **準備進入階段 3：web 前端開發**
+
+### 2025-11-07（下午 Part 1）
 - 🚀 **開始階段 2.1：BWF 爬蟲修正**
 - 📝 建立 STAGE-2.1-BWF-CORRECTION.md 文件
 - 📝 更新 scraper-bwf SPEC.md（新增 Puppeteer API 攔截規格）

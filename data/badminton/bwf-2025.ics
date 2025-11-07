@@ -6,37 +6,545 @@ METHOD:PUBLISH
 X-WR-CALNAME:Match Calendar
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:badminton-bwf-2025-01-15-2025-indonesia-masters
-SUMMARY:2025 Indonesia Masters
-DTSTAMP:20251107T023919Z
-DTSTART:20250114T160000Z
-DTEND:20250122T155900Z
-URL:https://bwfbadminton.com/tournament/2025-indonesia-masters
-LOCATION:Jakarta\, Indonesia
-STATUS:CONFIRMED
-CATEGORIES:badminton,professional
-X-MICROSOFT-CDO-BUSYSTATUS:BUSY
-END:VEVENT
-BEGIN:VEVENT
-UID:badminton-bwf-2025-02-10-2025-malaysia-open
-SUMMARY:2025 Malaysia Open
-DTSTAMP:20251107T023919Z
-DTSTART:20250209T160000Z
-DTEND:20250217T155900Z
-URL:https://bwfbadminton.com/tournament/2025-malaysia-open
+UID:badminton-bwf-2025-01-07-petronas-malaysia-open-2025
+SUMMARY:PETRONAS Malaysia Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250106T160000Z
+DTEND:20250112T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5222/petronas-malaysia
+	-open-2025/results/
 LOCATION:Kuala Lumpur\, Malaysia
 STATUS:CONFIRMED
 CATEGORIES:badminton,professional
 X-MICROSOFT-CDO-BUSYSTATUS:BUSY
 END:VEVENT
 BEGIN:VEVENT
-UID:badminton-bwf-2025-03-12-2025-all-england-open
-SUMMARY:2025 All England Open
-DTSTAMP:20251107T023919Z
-DTSTART:20250311T160000Z
-DTEND:20250319T155900Z
-URL:https://bwfbadminton.com/tournament/2025-all-england-open
+UID:badminton-bwf-2025-01-14-yonex-sunrise-india-open-2025
+SUMMARY:YONEX-SUNRISE India Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250113T160000Z
+DTEND:20250119T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5268/yonex-sunrise-ind
+	ia-open-2025/results/
+LOCATION:New Delhi\, India
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-01-21-daihatsu-indonesia-masters-2025
+SUMMARY:DAIHATSU Indonesia Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250120T160000Z
+DTEND:20250126T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5234/daihatsu-indonesi
+	a-masters-2025/results/
+LOCATION:Jakarta\, Indonesia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-01-28-princess-sirivannavari-thailand-masters-2025
+SUMMARY:PRINCESS SIRIVANNAVARI Thailand Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250127T160000Z
+DTEND:20250202T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5221/princess-sirivann
+	avari-thailand-masters-2025/results/
+LOCATION:Patumwan\, Thailand
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-02-25-yonex-german-open-2025
+SUMMARY:YONEX German Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250224T160000Z
+DTEND:20250302T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5242/yonex-german-open
+	-2025/results/
+LOCATION:Mülheim an der Ruhr\, Germany
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-03-04-orleans-masters-badminton-2025-presented-by-vi
+	ctor
+SUMMARY:Orleans Masters Badminton 2025 presented by VICTOR
+DTSTAMP:20251107T075336Z
+DTSTART:20250303T160000Z
+DTEND:20250309T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5251/orleans-masters-b
+	adminton-2025-presented-by-victor/results/
+LOCATION:Orléans\, France
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-03-11-ruichang-china-masters-2025
+SUMMARY:Ruichang China Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250310T160000Z
+DTEND:20250316T155900Z
+URL:https://bwfbadminton.com/tournament/5279/ruichang-china-masters-2025
+LOCATION:Ruichang\, China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-03-11-yonex-all-england-open-badminton-championships
+	-2025
+SUMMARY:YONEX All England Open Badminton Championships 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250310T160000Z
+DTEND:20250316T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5238/yonex-all-england
+	-open-badminton-championships-2025/results/
 LOCATION:Birmingham\, England
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-03-18-yonex-swiss-open-2025
+SUMMARY:YONEX Swiss Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250317T160000Z
+DTEND:20250323T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5195/yonex-swiss-open-
+	2025/results/
+LOCATION:Basel\, Switzerland
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-04-27-totalenergies-bwf-sudirman-cup-finals-2025
+SUMMARY:TotalEnergies BWF Sudirman Cup Finals 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250426T160000Z
+DTEND:20250504T155900Z
+URL:https://bwfsudirmancup.bwfbadminton.com/results/5260/totalenergies-bwf-
+	sudirman-cup-finals-2025
+LOCATION:Xiamen\, China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-05-06-yonex-taipei-open-2025
+SUMMARY:YONEX Taipei Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250505T160000Z
+DTEND:20250511T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5233/yonex-taipei-open
+	-2025/results/
+LOCATION:Taipei\, Chinese Taipei
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-05-13-toyota-thailand-open-2025
+SUMMARY:TOYOTA Thailand Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250512T160000Z
+DTEND:20250518T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5225/toyota-thailand-o
+	pen-2025/results/
+LOCATION:Patumwan\,\, Thailand
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-05-20-perodua-malaysia-masters-2025
+SUMMARY:PERODUA Malaysia Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250519T160000Z
+DTEND:20250525T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5224/perodua-malaysia-
+	masters-2025/results/
+LOCATION:Kuala Lumpur\, Malaysia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-05-27-kff-singapore-badminton-open-2025
+SUMMARY:KFF Singapore Badminton Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250526T160000Z
+DTEND:20250601T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5282/kff-singapore-bad
+	minton-open-2025/results/
+LOCATION:Singapore\, Singapore
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-06-03-kapal-api-indonesia-open-2025
+SUMMARY:KAPAL API Indonesia Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250602T160000Z
+DTEND:20250608T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5236/kapal-api-indones
+	ia-open-2025/results/
+LOCATION:Jakarta\, Indonesia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-06-24-yonex-us-open-2025
+SUMMARY:YONEX US Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250623T160000Z
+DTEND:20250629T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5285/yonex-us-open-202
+	5/results/
+LOCATION:Council Bluffs\, Iowa\, USA
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-07-01-yonex-canada-open-2025
+SUMMARY:YONEX Canada Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250630T160000Z
+DTEND:20250706T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5254/yonex-canada-open
+	-2025/results/
+LOCATION:Markham Ontario\, Canada
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-07-15-daihatsu-japan-open-2025
+SUMMARY:DAIHATSU Japan Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250714T160000Z
+DTEND:20250720T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5198/daihatsu-japan-op
+	en-2025/results/
+LOCATION:Tokyo\, Japan
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-07-22-victor-china-open-2025
+SUMMARY:VICTOR China Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250721T160000Z
+DTEND:20250727T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5281/victor-china-open
+	-2025/results/
+LOCATION:Changzhou\, China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-07-29-sands-china-ltd-macau-open-2025
+SUMMARY:SANDS CHINA LTD Macau Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250728T160000Z
+DTEND:20250803T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5202/sands-china-ltd-m
+	acau-open-2025/results/
+LOCATION:Macau\, Macau China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-08-25-totalenergies-bwf-world-championships-2025
+SUMMARY:TotalEnergies BWF World Championships 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250824T160000Z
+DTEND:20250831T155900Z
+URL:https://bwfworldchampionships.bwfbadminton.com/results/5261/totalenergi
+	es-bwf-world-championships-2025
+LOCATION:Paris\, France
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-02-baoji-china-masters-2025
+SUMMARY:BAOJI China Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250901T160000Z
+DTEND:20250907T155900Z
+URL:https://bwfbadminton.com/tournament/5278/baoji-china-masters-2025
+LOCATION:Baoji\, Shaanxi Province\, China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-09-li-ning-hong-kong-open-2025
+SUMMARY:LI-NING Hong Kong Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250908T160000Z
+DTEND:20250914T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5203/li-ning-hong-kong
+	-open-2025/results/
+LOCATION:Kowloon\, Hong Kong China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-09-yonex-sunrise-vietnam-open-2025
+SUMMARY:YONEX SUNRISE Vietnam Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250908T160000Z
+DTEND:20250914T155900Z
+URL:https://bwfbadminton.com/tournament/5219/yonex-sunrise-vietnam-open-202
+	5
+LOCATION:Ho Chi Minh\, Vietnam
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-16-li-ning-china-masters-2025
+SUMMARY:LI-NING China Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250915T160000Z
+DTEND:20250921T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5280/li-ning-china-mas
+	ters-2025/results/
+LOCATION:Shenzhen\, China
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-16-wondr-by-bni-indonesia-masters-i-2025
+SUMMARY:WONDR by BNI Indonesia Masters I 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250915T160000Z
+DTEND:20250921T155900Z
+URL:https://bwfbadminton.com/tournament/5235/wondr-by-bni-indonesia-masters
+	-i-2025
+LOCATION:Riau ( formerly Solo)\, Indonesia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-23-victor-kaohsiung-masters-2025
+SUMMARY:VICTOR Kaohsiung Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250922T160000Z
+DTEND:20250928T155900Z
+URL:https://bwfbadminton.com/tournament/5237/victor-kaohsiung-masters-2025
+LOCATION:Kaohsiung\, Chinese Taipei
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-23-suwon-victor-korea-open-2025
+SUMMARY:SUWON VICTOR Korea Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250922T160000Z
+DTEND:20250928T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5288/suwon-victor-kore
+	a-open-2025/results/
+LOCATION:Suwon-si\, Korea
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-09-30-al-ain-masters-2025
+SUMMARY:Al Ain Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20250929T160000Z
+DTEND:20251005T155900Z
+URL:https://bwfbadminton.com/tournament/5284/al-ain-masters-2025
+LOCATION:Al Ain\, United Arab Emirates
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-07-clash-of-clans-arctic-open-2025-powered-by-yon
+	ex
+SUMMARY:CLASH OF CLANS Arctic Open 2025 powered by YONEX
+DTSTAMP:20251107T075336Z
+DTSTART:20251006T160000Z
+DTEND:20251012T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5287/clash-of-clans-ar
+	ctic-open-2025-powered-by-yonex/results/
+LOCATION:Vantaa\, Finland
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-14-allianz-malaysia-super-100-2025
+SUMMARY:ALLIANZ Malaysia Super 100 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251013T160000Z
+DTEND:20251019T155900Z
+URL:https://bwfbadminton.com/tournament/5223/allianz-malaysia-super-100-202
+	5
+LOCATION:Iskandar Puteri\, Johor\, Malaysia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-14-victor-denmark-open-2025
+SUMMARY:VICTOR Denmark Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251013T160000Z
+DTEND:20251019T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5207/victor-denmark-op
+	en-2025/results/
+LOCATION:Odense\, Denmark
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-21-wondr-by-bni-indonesia-masters-ii-2025
+SUMMARY:WONDR by BNI Indonesia Masters II 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251020T160000Z
+DTEND:20251026T155900Z
+URL:https://bwfbadminton.com/tournament/5232/wondr-by-bni-indonesia-masters
+	-ii-2025
+LOCATION:Medan\, Indonesia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-21-yonex-french-open-2025
+SUMMARY:YONEX French Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251020T160000Z
+DTEND:20251026T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5257/yonex-french-open
+	-2025/results/
+LOCATION:Cesson-Sévigné\, France
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-10-28-hylo-open-2025
+SUMMARY:HYLO Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251027T160000Z
+DTEND:20251102T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5256/hylo-open-2025/re
+	sults/
+LOCATION:Saarbrücken\, Germany
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-11-04-iksan-victor-korea-masters-2025
+SUMMARY:IKSAN VICTOR Korea Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251103T160000Z
+DTEND:20251109T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5286/iksan-victor-kore
+	a-masters-2025/results/
+LOCATION:Iksan City\, Korea
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-11-11-kumamoto-masters-japan-2025
+SUMMARY:Kumamoto Masters Japan 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251110T160000Z
+DTEND:20251116T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5208/kumamoto-masters-
+	japan-2025/results/
+LOCATION:Kumamoto City\, Japan
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-11-18-sathio-group-australian-open-2025
+SUMMARY:SATHIO GROUP Australian Open 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251117T160000Z
+DTEND:20251123T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5199/sathio-group-aust
+	ralian-open-2025/results/
+LOCATION:Sydney\, Australia
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-11-25-syed-modi-india-international-2025
+SUMMARY:SYED MODI India International 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251124T160000Z
+DTEND:20251130T155900Z
+URL:https://bwfworldtour.bwfbadminton.com/tournament/5267/syed-modi-india-i
+	nternational-2025/results/
+LOCATION:Lucknow\, India
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-12-02-yonex-sunrise-guwahati-masters-2025
+SUMMARY:YONEX-SUNRISE Guwahati Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251201T160000Z
+DTEND:20251207T155900Z
+URL:https://bwfbadminton.com/tournament/5266/yonex-sunrise-guwahati-masters
+	-2025
+LOCATION:Guwahati\, India
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-12-09-odisha-masters-2025
+SUMMARY:Odisha Masters 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251208T160000Z
+DTEND:20251214T155900Z
+URL:https://bwfbadminton.com/tournament/5265/odisha-masters-2025
+LOCATION:Cuttack\, India
+STATUS:CONFIRMED
+CATEGORIES:badminton,professional
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+END:VEVENT
+BEGIN:VEVENT
+UID:badminton-bwf-2025-12-17-hsbc-bwf-world-tour-finals-2025
+SUMMARY:HSBC BWF World Tour Finals 2025
+DTSTAMP:20251107T075336Z
+DTSTART:20251216T160000Z
+DTEND:20251221T155900Z
+URL:https://bwfworldtourfinals.bwfbadminton.com/results/5259/hsbc-bwf-world
+	-tour-finals-2025
+LOCATION:Hangzhou\, China
 STATUS:CONFIRMED
 CATEGORIES:badminton,professional
 X-MICROSOFT-CDO-BUSYSTATUS:BUSY
