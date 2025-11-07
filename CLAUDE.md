@@ -1,4 +1,5 @@
-閱讀 @docs/INDEX.md 與 @README.md
+-   閱讀 @docs/INDEX.md 與 @README.md
+-   若撰寫中文，使用繁體中文
 
 # ROLE AND EXPERTISE
 
