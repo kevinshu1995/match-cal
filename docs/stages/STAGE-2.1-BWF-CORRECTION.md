@@ -58,56 +58,151 @@ page.on('response', async (response) => {
 
 ## 📅 主要任務
 
-### 1. 驗證 API 結構（0.5 天）
+### 1. ✅ API 結構已驗證
 
-- [ ] 手動造訪 https://bwfbadminton.com/calendar/
-- [ ] 使用瀏覽器 DevTools 觀察 Network 請求
-- [ ] 確認 API 請求的：
-  - [ ] Request Headers
-  - [ ] Request Body（如有）
-  - [ ] Response 資料結構
-  - [ ] Response 欄位對應關係
-- [ ] 記錄範例資料到文件
+**API 基本資訊**：
+- **URL**: https://extranet-lv.bwfbadminton.com/api/vue-grouped-year-tournaments
+- **方法**: POST
+- **回應格式**: JSON
 
-**注意事項**：
-- API 回應的資料結構可能與 mock 資料不同
-- 需要分析如何對應到現有的 transformer 期望格式
+**已完成**：
+- [x] 手動造訪 https://bwfbadminton.com/calendar/
+- [x] 使用瀏覽器 DevTools 觀察 Network 請求
+- [x] 確認 API 回應的資料結構
+- [x] 記錄範例資料到 fixtures
 
----
+#### API 回應結構
 
-### 2. 設計資料轉換邏輯（0.5 天）
-
-根據真實 API 回應，規劃資料轉換：
-
-```javascript
-// API 回應範例（待驗證）
+```json
 {
-  "tournaments": [
+  "results": [
     {
-      "name": "...",
-      "start_date": "...",
-      "end_date": "...",
-      "location": "...",
-      // ... 其他欄位
+      "month": "January",
+      "monthNo": 1,
+      "tournaments": [
+        {
+          "id": 5222,
+          "code": "BD7DDFAC-145A-4865-B58A-C00977D5A3C3",
+          "name": "PETRONAS Malaysia Open 2025",
+          "start_date": "2025-01-07 00:00:00",
+          "end_date": "2025-01-12 00:00:00",
+          "location": "Kuala Lumpur, Malaysia",
+          "country": "Malaysia",
+          "url": "https://bwfworldtour.bwfbadminton.com/tournament/5222/...",
+          "category": "HSBC BWF World Tour Super 1000",
+          "prize_money": "1,450,000",
+          "live_status": "post",
+          "has_live_scores": true,
+          "date": "07  - 12 Jan",
+          "flag_url": "...",
+          "logo": "...",
+          "cat_logo": "...",
+          "header_url": "...",
+          "status": {
+            "status": "0",
+            "code": "normal",
+            "label": "Normal"
+          }
+        }
+      ]
     }
-  ]
-}
-
-// 需要轉換為
-{
-  "name": "...",
-  "startDate": "...",
-  "endDate": "...",
-  "location": "...",
-  "tier": "...",
-  "url": "..."
+  ],
+  "remaining": 6,
+  "completed": 35
 }
 ```
 
+**重要發現**：
+1. ✅ 資料結構：`results` 陣列 → 月份物件 → `tournaments` 陣列
+2. ✅ 日期格式：`YYYY-MM-DD HH:MM:SS`（需要解析處理）
+3. ✅ 賽事等級：使用 `category` 欄位（例：HSBC BWF World Tour Super 1000）
+4. ✅ 沒有 `tier` 欄位，需要從 `category` 提取
+5. ✅ 獎金格式：字串包含逗號（例：`"1,450,000"`）
+6. ✅ 包含大量額外欄位（logo, flag_url 等）
+
+**完整範例資料**：
+→ 儲存於 `packages/scraper-bwf/tests/fixtures/api-response-sample.json`
+
+---
+
+### 2. 設計資料轉換邏輯
+
+#### 欄位對應表
+
+| API 欄位 | 內部格式欄位 | 轉換邏輯 | 備註 |
+|----------|-------------|---------|------|
+| `name` | `name` | 直接對應 | - |
+| `start_date` | `startDate` | 解析 `YYYY-MM-DD HH:MM:SS` → ISO 8601 | 需處理時間部分 |
+| `end_date` | `endDate` | 解析 `YYYY-MM-DD HH:MM:SS` → ISO 8601 | 需處理時間部分 |
+| `location` | `location` | 直接對應 | - |
+| `country` | - | 可選，暫不使用 | 地點已包含國家資訊 |
+| `url` | `url` | 直接對應 | 官方網址 |
+| `category` | `tier` | 提取等級資訊 | 例：`"Super 1000"` → `"Super 1000"` |
+| `prize_money` | - | 可選，未來可加入 | 字串格式，包含逗號 |
+| `id` | - | 可選，未來可用於去重 | BWF 官方 ID |
+| `live_status` | - | 可選，未來可加入狀態 | `"post"`, `"live"`, `"future"` |
+
+#### 資料轉換流程
+
+```javascript
+/**
+ * 將 API 回應轉換為內部格式
+ * @param {Object} apiData - API 原始回應
+ * @returns {Array} 轉換後的賽事陣列
+ */
+transformApiData(apiData) {
+  const events = [];
+
+  // 遍歷所有月份
+  for (const monthData of apiData.results) {
+    // 遍歷該月份的所有賽事
+    for (const tournament of monthData.tournaments) {
+      events.push({
+        name: tournament.name,
+        startDate: tournament.start_date.split(' ')[0], // 只取日期部分
+        endDate: tournament.end_date.split(' ')[0],
+        location: tournament.location,
+        tier: this.extractTier(tournament.category), // 從 category 提取等級
+        url: tournament.url,
+      });
+    }
+  }
+
+  return events;
+}
+
+/**
+ * 從 category 提取賽事等級
+ * 例：「HSBC BWF World Tour Super 1000」→「Super 1000」
+ */
+extractTier(category) {
+  const match = category.match(/Super \d+/);
+  return match ? match[0] : category;
+}
+```
+
+#### 待處理的特殊情況
+
+1. **日期格式**：
+   - API: `"2025-01-07 00:00:00"`
+   - 需要: `"2025-01-07"` 或完整 ISO 8601
+   - 決策：先只取日期部分，時間處理交給 transformer
+
+2. **Category 格式多樣**：
+   - `"HSBC BWF World Tour Super 1000"`
+   - `"Grade 1 – Team Tournaments"`
+   - `"BWF Tour Super 100"`
+   - 需要靈活的提取邏輯
+
+3. **空值處理**：
+   - `prize_money` 可能為 `null`
+   - 需要提供預設值或跳過
+
 **任務**：
-- [ ] 建立 API 回應的 TypeScript 型別定義（或 JSDoc）
-- [ ] 更新或新建 `transformApiResponse()` 函式
-- [ ] 撰寫轉換邏輯的測試用例
+- [ ] 實作 `transformApiData()` 方法
+- [ ] 實作 `extractTier()` 輔助函式
+- [ ] 撰寫單元測試使用 fixtures
+- [ ] 處理邊界情況（空值、異常格式）
 
 ---
 

@@ -164,36 +164,74 @@ packages/scraper-bwf/
 
 ## 🔧 API 資料結構
 
-### API 回應格式（待驗證）
+### ✅ API 回應格式（已驗證）
 
 ```json
 {
-  "tournaments": [
+  "results": [
     {
-      "name": "2025 Indonesia Masters",
-      "start_date": "2025-01-15",
-      "end_date": "2025-01-22",
-      "location": "Jakarta, Indonesia",
-      "tier": "Super 1000",
-      "official_url": "https://...",
-      ...
+      "month": "January",
+      "monthNo": 1,
+      "tournaments": [
+        {
+          "id": 5222,
+          "code": "BD7DDFAC-145A-4865-B58A-C00977D5A3C3",
+          "name": "PETRONAS Malaysia Open 2025",
+          "start_date": "2025-01-07 00:00:00",
+          "end_date": "2025-01-12 00:00:00",
+          "location": "Kuala Lumpur, Malaysia",
+          "country": "Malaysia",
+          "url": "https://bwfworldtour.bwfbadminton.com/tournament/5222/...",
+          "category": "HSBC BWF World Tour Super 1000",
+          "prize_money": "1,450,000",
+          "live_status": "post",
+          "has_live_scores": true,
+          "date": "07  - 12 Jan",
+          "flag_url": "...",
+          "logo": "...",
+          "status": {
+            "status": "0",
+            "code": "normal",
+            "label": "Normal"
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "remaining": 6,
+  "completed": 35
 }
 ```
 
-**注意**: 實際結構需要手動驗證後更新此文件。
+**重要特徵**：
+- 資料以月份分組：`results[].tournaments[]`
+- 日期格式：`YYYY-MM-DD HH:MM:SS`
+- 賽事等級在 `category` 欄位（非 `tier`）
+- 包含豐富的視覺資源（logo, flag_url, header_url）
+
+**完整範例**：
+→ `tests/fixtures/api-response-sample.json`
 
 ### 轉換對應
 
-| API 欄位 | 內部格式欄位 | 說明 |
-|----------|-------------|------|
-| `name` | `name` | 賽事名稱 |
-| `start_date` | `startDate` | 開始日期（轉為 ISO 格式） |
-| `end_date` | `endDate` | 結束日期（轉為 ISO 格式） |
-| `location` | `location` | 地點 |
-| `tier` | `tier` | 賽事等級 |
-| `official_url` | `url` | 官方網址 |
+| API 欄位 | 內部格式欄位 | 轉換邏輯 | 備註 |
+|----------|-------------|---------|------|
+| `name` | `name` | 直接對應 | - |
+| `start_date` | `startDate` | 提取日期部分 | `"2025-01-07 00:00:00"` → `"2025-01-07"` |
+| `end_date` | `endDate` | 提取日期部分 | 同上 |
+| `location` | `location` | 直接對應 | 已包含國家資訊 |
+| `url` | `url` | 直接對應 | 官方網址 |
+| `category` | `tier` | 提取等級 | `"HSBC BWF World Tour Super 1000"` → `"Super 1000"` |
+| `id` | - | 保留供未來使用 | BWF 官方 ID |
+| `prize_money` | - | 可選 | 字串格式（含逗號） |
+| `live_status` | - | 可選 | `"post"` / `"live"` / `"future"` |
+
+### 資料處理重點
+
+1. **展平結構**：從月份分組展平為單一賽事陣列
+2. **日期處理**：去除時間部分，只保留日期
+3. **等級提取**：使用正則提取 `Super XXX` 或直接使用 category
+4. **空值處理**：`prize_money` 可能為 `null`
 
 ---
 

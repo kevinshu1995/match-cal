@@ -16,8 +16,9 @@
 將 BWF 爬蟲從 mock 資料改為真實 API 攔截，使用 Puppeteer 攔截 BWF 網站的 API 請求。
 
 **主要任務**：
-- [ ] 手動驗證 API 結構（https://extranet-lv.bwfbadminton.com/api/vue-grouped-year-tournaments）
-- [ ] 分析 API 回應資料結構
+- [x] 手動驗證 API 結構（https://extranet-lv.bwfbadminton.com/api/vue-grouped-year-tournaments）
+- [x] 分析 API 回應資料結構
+- [x] 建立 API fixtures 檔案
 - [ ] TDD 實作 Puppeteer API 攔截
 - [ ] 實作 `transformApiData()` 方法
 - [ ] 更新測試案例使用真實 API fixtures
