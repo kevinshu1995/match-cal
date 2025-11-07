@@ -12,12 +12,12 @@
 
 ### 我想了解專案架構
 
-- **系統架構總覽** → [ARCHITECTURE.md](ARCHITECTURE.md)
-- **技術細節文件** → [technical/](technical/)
+-   **系統架構總覽** → [ARCHITECTURE.md](ARCHITECTURE.md)
+-   **技術細節文件** → [technical/](technical/)
 
 ### 我要新增一個新的賽事來源
 
-- **新增賽事完整流程** → [guides/ADD-NEW-EVENT-SOURCE.md](guides/ADD-NEW-EVENT-SOURCE.md)
+-   **新增賽事完整流程** → [guides/ADD-NEW-EVENT-SOURCE.md](guides/ADD-NEW-EVENT-SOURCE.md)
 
 ---
 
@@ -66,15 +66,15 @@ docs/
 
 ### Tidy First（結構優先）
 
-- **結構性變更**與**行為變更**必須分開 commit
-- 結構性變更：重新命名、提取方法、移動程式碼
-- 行為變更：新增功能、修改邏輯
+-   **結構性變更**與**行為變更**必須分開 commit
+-   結構性變更：重新命名、提取方法、移動程式碼
+-   行為變更：新增功能、修改邏輯
 
 ### 低耦合設計
 
-- 不同 Package 獨立開發，不同時進行
-- 透過標準化資料格式溝通
-- 每個 Package 可獨立測試
+-   不同 Package 獨立開發，不同時進行
+-   透過標準化資料格式溝通
+-   每個 Package 可獨立測試
 
 ---
 
@@ -93,7 +93,7 @@ START
   ↓
 完成功能 → 更新文件 → Commit
   ↓
-階段完成 → 更新 CURRENT-STAGE.md → 進入下一階段
+階段完成 → 更新 docs/CURRENT-STAGE.md、 docs/stages/STAGE-x-x.md → 進入下一階段
 ```
 
 ---
@@ -140,10 +140,10 @@ MatchCal/
 
 ## 📝 文件更新規則
 
-- 當 **API 變更**時 → 更新對應 Package 的 SPEC.md
-- 當 **完成階段里程碑**時 → 更新 CURRENT-STAGE.md
-- 當 **新增技術決策**時 → 新增或更新 technical/ 下的文件
-- 當 **完成整個階段**時 → 更新 CURRENT-STAGE.md 指向下一階段
+-   當 **API 變更**時 → 更新對應 Package 的 SPEC.md
+-   當 **完成階段里程碑**時 → 更新 CURRENT-STAGE.md
+-   當 **新增技術決策**時 → 新增或更新 technical/ 下的文件
+-   當 **完成整個階段**時 → 更新 CURRENT-STAGE.md 指向下一階段
 
 ---
 
@@ -152,3 +152,4 @@ MatchCal/
 現在請前往 → [CURRENT-STAGE.md](CURRENT-STAGE.md)
 
 查看當前開發階段並開始工作！
+
