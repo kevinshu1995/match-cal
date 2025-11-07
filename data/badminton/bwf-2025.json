@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "category": "badminton",
+    "source": "bwf",
+    "sourceUrl": "https://bwfbadminton.com/calendar/",
+    "generatedAt": "2025-11-07T02:39:19.501Z",
+    "version": "1.0.0",
+    "eventCount": 3
+  },
+  "events": [
+    {
+      "id": "badminton-bwf-2025-01-15-2025-indonesia-masters",
+      "title": "2025 Indonesia Masters",
+      "startDate": "2025-01-15T00:00:00.000Z",
+      "endDate": "2025-01-22T23:59:59.999Z",
+      "timezone": "UTC",
+      "location": "Jakarta, Indonesia",
+      "category": "badminton",
+      "level": "professional",
+      "source": "bwf",
+      "officialUrl": "https://bwfbadminton.com/tournament/2025-indonesia-masters",
+      "tier": "Super 1000",
+      "status": "scheduled",
+      "createdAt": "2025-11-07T02:39:19.499Z",
+      "updatedAt": "2025-11-07T02:39:19.499Z",
+      "scrapedAt": "2025-11-07T02:39:19.499Z"
+    },
+    {
+      "id": "badminton-bwf-2025-02-10-2025-malaysia-open",
+      "title": "2025 Malaysia Open",
+      "startDate": "2025-02-10T00:00:00.000Z",
+      "endDate": "2025-02-17T23:59:59.999Z",
+      "timezone": "UTC",
+      "location": "Kuala Lumpur, Malaysia",
+      "category": "badminton",
+      "level": "professional",
+      "source": "bwf",
+      "officialUrl": "https://bwfbadminton.com/tournament/2025-malaysia-open",
+      "tier": "Super 750",
+      "status": "scheduled",
+      "createdAt": "2025-11-07T02:39:19.500Z",
+      "updatedAt": "2025-11-07T02:39:19.500Z",
+      "scrapedAt": "2025-11-07T02:39:19.500Z"
+    },
+    {
+      "id": "badminton-bwf-2025-03-12-2025-all-england-open",
+      "title": "2025 All England Open",
+      "startDate": "2025-03-12T00:00:00.000Z",
+      "endDate": "2025-03-19T23:59:59.999Z",
+      "timezone": "UTC",
+      "location": "Birmingham, England",
+      "category": "badminton",
+      "level": "professional",
+      "source": "bwf",
+      "officialUrl": "https://bwfbadminton.com/tournament/2025-all-england-open",
+      "tier": "Super 1000",
+      "status": "scheduled",
+      "createdAt": "2025-11-07T02:39:19.500Z",
+      "updatedAt": "2025-11-07T02:39:19.500Z",
+      "scrapedAt": "2025-11-07T02:39:19.500Z"
+    }
+  ]
+}
