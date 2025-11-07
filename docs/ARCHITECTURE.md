@@ -314,8 +314,10 @@ StandardEvent {
 |------|------|------|
 | Nuxt 4 | ^4.x | 前端框架 |
 | Vue 3 | ^3.x | UI 框架 |
-| Nuxt UI | ^3.x | UI 元件庫 |
-| TailwindCSS | ^3.x | CSS 框架 |
+| shadcn-vue | latest | UI 組件庫（基於 Radix Vue） |
+| Radix Vue | ^1.x | 無頭組件庫 |
+| TailwindCSS | ^4.x | CSS 框架 |
+| class-variance-authority | ^0.7.x | 變體管理 |
 
 ### 開發工具
 
@@ -338,7 +340,8 @@ StandardEvent {
 | 工具 | 用途 |
 |------|------|
 | context7 (nuxt) | Nuxt 框架文件查詢 |
-| context7 (nuxt-ui) | Nuxt UI 元件文件查詢 |
+| context7 (shadcn-vue) | shadcn-vue 組件文件查詢 |
+| context7 (radix-vue) | Radix Vue 無頭組件文件查詢 |
 | chrome-devtools | 瀏覽器偵錯與爬蟲測試 |
 | GitHub MCP | GitHub Actions、Issues、PRs 管理 |
 | Filesystem MCP | 檔案系統操作與監控 |

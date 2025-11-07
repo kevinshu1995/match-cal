@@ -42,10 +42,12 @@ docs/
 │   ├── JSON-SCHEMA.md
 │   └── SCRAPER-INTERFACE.md
 │
-└── guides/                           ← 操作指南
-    ├── ADD-NEW-EVENT-SOURCE.md
-    ├── TDD-WORKFLOW.md
-    └── COMMIT-CONVENTION.md
+├── guides/                           ← 操作指南
+│   ├── ADD-NEW-EVENT-SOURCE.md
+│   ├── TDD-WORKFLOW.md
+│   └── COMMIT-CONVENTION.md
+│
+└── UI-FRAMEWORK-SHADCN-VUE.md  ← UI 框架規劃說明
 ```
 
 ---

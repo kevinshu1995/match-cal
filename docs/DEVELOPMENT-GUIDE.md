@@ -62,7 +62,8 @@ pnpm install
 | MCP 工具 | 用途 |
 |---------|------|
 | context7 (nuxt) | Nuxt 框架文件查詢 |
-| context7 (nuxt-ui) | Nuxt UI 元件文件查詢 |
+| context7 (shadcn-vue) | shadcn-vue 組件文件查詢 |
+| context7 (radix-vue) | Radix Vue 無頭組件文件查詢 |
 | chrome-devtools | 瀏覽器偵錯與爬蟲測試 |
 | GitHub MCP | GitHub Actions、Issues、PRs 管理 |
 | Filesystem MCP | 檔案系統操作與監控 |

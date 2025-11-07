@@ -11,7 +11,7 @@
 | Package 名稱 | @matchcal/web |
 | 版本 | 0.1.0 |
 | 職責 | 靜態網站前端（Nuxt 4 generate 模式） |
-| 依賴 | nuxt, @nuxt/ui, vue |
+| 依賴 | nuxt, shadcn-vue (shadcn-nuxt), vue, @radix-vue/ui, tailwindcss |
 | 被依賴 | 無 |
 
 ---
@@ -79,16 +79,22 @@ packages/web/
 
 ---
 
-## 🎨 UI 元件（Nuxt UI）
+## 🎨 UI 元件（shadcn-vue）
 
-使用 Nuxt UI 提供的元件：
+使用 shadcn-vue 提供的元件（基於 Radix Vue）：
 
-- `UButton`
-- `UCard`
-- `UInput`（搜尋）
-- `USelect`（篩選）
-- `UBadge`（級別標籤）
-- `UIcon`
+- `Button` - 按鈕組件
+- `Card` + `CardHeader` + `CardContent` + `CardFooter` - 卡片組件
+- `Input` - 輸入框（搜尋）
+- `Select` - 選擇器（篩選）
+- `Badge` - 徽章（級別標籤）
+- 圖標使用 `@iconify/vue` 或內聯 SVG
+
+**组件特性**：
+- 完全可定制：组件代码在 `components/ui/` 目录下，可直接修改
+- 可访问性：基于 Radix Vue，符合 ARIA 标准
+- 主题系统：使用 CSS 变量，支持亮色/暗色模式
+- TypeScript：完整的类型支持
 
 ---
 
@@ -116,4 +122,4 @@ pnpm --filter @matchcal/web generate
 
 ---
 
-🎯 **使用 Nuxt UI 快速建立美觀的介面！**
+🎯 **使用 shadcn-vue 打造高度定制化的美觀介面！**

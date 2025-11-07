@@ -88,7 +88,7 @@ MatchCal/
 |------|------|
 | 套件管理 | pnpm workspaces |
 | 爬蟲 | Node.js + Puppeteer |
-| 前端 | Nuxt 4 + Nuxt UI |
+| 前端 | Nuxt 4 + shadcn-vue (Radix Vue + Tailwind CSS) |
 | 測試 | Vitest + TDD |
 | CI/CD | GitHub Actions |
 | 部署 | GitHub Pages |
