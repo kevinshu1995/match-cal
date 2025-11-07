@@ -26,7 +26,7 @@
 
 **技術選擇**：
 - 框架：Nuxt 4（Vue 3）
-- UI 框架：Nuxt UI
+- UI 框架：shadcn-vue（基於 Radix Vue + Tailwind CSS）
 - 部署：GitHub Pages / Cloudflare Pages
 - 資料來源：靜態 JSON 檔案（來自 `data/` 目錄）
 
@@ -38,7 +38,7 @@
 
 - [ ] 建立 `packages/web/` 目錄
 - [ ] 初始化 Nuxt 4 專案
-- [ ] 安裝 Nuxt UI
+- [ ] 安裝 shadcn-vue
 - [ ] 設定 TypeScript
 - [ ] 設定 ESLint / Prettier
 - [ ] 建立基礎目錄結構
@@ -48,7 +48,20 @@
 cd packages
 npx nuxi@latest init web
 cd web
-pnpm add @nuxt/ui
+
+# 方法 1：使用 shadcn-nuxt 模块（推荐）
+pnpm add -D shadcn-nuxt
+# 添加 'shadcn-nuxt' 到 nuxt.config.ts 的 modules
+
+# 方法 2：手动配置
+pnpm add -D tailwindcss class-variance-authority clsx tailwind-merge
+pnpm add @vueuse/core radix-vue
+
+# 初始化 shadcn-vue
+pnpm dlx shadcn-vue@latest init
+
+# 添加常用组件
+pnpm dlx shadcn-vue@latest add button card input select badge
 ```
 
 **目錄結構**：
@@ -63,6 +76,12 @@ packages/web/
 │   │   └── [id].vue           # 賽事詳情
 │   └── subscribe.vue          # 訂閱說明
 ├── components/
+│   ├── ui/                    # shadcn-vue 组件目录
+│   │   ├── button/
+│   │   ├── card/
+│   │   ├── input/
+│   │   ├── select/
+│   │   └── badge/
 │   ├── EventCard.vue          # 賽事卡片
 │   ├── EventList.vue          # 賽事列表
 │   ├── FilterBar.vue          # 篩選條件
@@ -70,13 +89,20 @@ packages/web/
 ├── composables/
 │   ├── useEvents.ts           # 賽事資料邏輯
 │   └── useFilters.ts          # 篩選邏輯
+├── lib/
+│   └── utils.ts               # cn() 等工具函数
+├── assets/
+│   └── css/
+│       └── tailwind.css       # Tailwind 入口文件
 ├── public/
 │   └── data/                  # 複製自 ../../data/
 │       └── bwf/
 │           ├── events.json
 │           └── badminton.ics
-└── types/
-    └── event.ts               # TypeScript 型別定義
+├── types/
+│   └── event.ts               # TypeScript 型別定義
+├── tailwind.config.js         # Tailwind 配置
+└── components.json            # shadcn-vue 配置
 ```
 
 ---
@@ -119,11 +145,43 @@ packages/web/
 
 ```vue
 <!-- components/FilterBar.vue -->
+<script setup lang="ts">
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Input } from '@/components/ui/input'
+
+const category = ref('')
+const timeRange = ref('')
+const searchQuery = ref('')
+
+const categories = ['全部', '羽球', '籃球']
+const timeRanges = ['本週', '本月', '全部']
+</script>
+
 <template>
-  <div class="filter-bar">
-    <USelect v-model="category" :options="categories" />
-    <USelect v-model="timeRange" :options="timeRanges" />
-    <UInput v-model="searchQuery" placeholder="搜尋賽事..." />
+  <div class="flex gap-4">
+    <Select v-model="category">
+      <SelectTrigger class="w-[180px]">
+        <SelectValue placeholder="選擇分類" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem v-for="cat in categories" :key="cat" :value="cat">
+          {{ cat }}
+        </SelectItem>
+      </SelectContent>
+    </Select>
+
+    <Select v-model="timeRange">
+      <SelectTrigger class="w-[180px]">
+        <SelectValue placeholder="時間範圍" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem v-for="range in timeRanges" :key="range" :value="range">
+          {{ range }}
+        </SelectItem>
+      </SelectContent>
+    </Select>
+
+    <Input v-model="searchQuery" placeholder="搜尋賽事..." class="max-w-xs" />
   </div>
 </template>
 ```
@@ -132,15 +190,30 @@ packages/web/
 
 ```vue
 <!-- components/EventCard.vue -->
+<script setup lang="ts">
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+
+defineProps<{
+  event: Event
+}>()
+</script>
+
 <template>
-  <UCard>
-    <h3>{{ event.title }}</h3>
-    <p>{{ formatDate(event.startDate) }}</p>
-    <p>{{ event.location }}</p>
-    <UButton @click="navigateTo(`/events/${event.id}`)">
-      查看詳情
-    </UButton>
-  </UCard>
+  <Card>
+    <CardHeader>
+      <h3 class="text-lg font-semibold">{{ event.title }}</h3>
+    </CardHeader>
+    <CardContent class="space-y-2">
+      <p class="text-sm text-muted-foreground">{{ formatDate(event.startDate) }}</p>
+      <p class="text-sm">{{ event.location }}</p>
+    </CardContent>
+    <CardFooter>
+      <Button @click="navigateTo(`/events/${event.id}`)">
+        查看詳情
+      </Button>
+    </CardFooter>
+  </Card>
 </template>
 ```
 
@@ -166,9 +239,11 @@ packages/web/
     <div>{{ event.description }}</div>
 
     <SubscribeButton :event="event" />
-    <UButton :to="event.sourceUrl" external>
-      前往官方網站
-    </UButton>
+    <Button as-child>
+      <a :href="event.sourceUrl" target="_blank" rel="noopener noreferrer">
+        前往官方網站
+      </a>
+    </Button>
   </div>
 </template>
 ```
@@ -186,25 +261,34 @@ packages/web/
 
 ```vue
 <!-- components/SubscribeButton.vue -->
-<template>
-  <div>
-    <UButton @click="downloadICS">下載 ICS 檔案</UButton>
-    <UButton @click="copyWebcalUrl">複製訂閱連結</UButton>
-  </div>
-</template>
-
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/toast'
+
+const { toast } = useToast()
+
 const downloadICS = () => {
   // 下載 /data/bwf/badminton.ics
-  window.location.href = '/data/bwf/badminton.ics';
-};
+  window.location.href = '/data/bwf/badminton.ics'
+}
 
-const copyWebcalUrl = () => {
+const copyWebcalUrl = async () => {
   // 複製 webcal:// 連結
-  const url = 'webcal://matchcal.example.com/data/bwf/badminton.ics';
-  navigator.clipboard.writeText(url);
-};
+  const url = 'webcal://matchcal.example.com/data/bwf/badminton.ics'
+  await navigator.clipboard.writeText(url)
+  toast({
+    title: '已複製連結',
+    description: '訂閱連結已複製到剪貼簿'
+  })
+}
 </script>
+
+<template>
+  <div class="flex gap-2">
+    <Button @click="downloadICS">下載 ICS 檔案</Button>
+    <Button variant="outline" @click="copyWebcalUrl">複製訂閱連結</Button>
+  </div>
+</template>
 ```
 
 #### 5.2 訂閱說明頁面
@@ -279,6 +363,15 @@ export const useEvents = () => {
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
+  modules: ['shadcn-nuxt'],
+
+  shadcn: {
+    prefix: '',
+    componentDir: './components/ui'
+  },
+
+  css: ['~/assets/css/tailwind.css'],
+
   app: {
     head: {
       title: 'MatchCal - 比賽賽程自動整合行事曆',
@@ -289,6 +382,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   nitro: {
     prerender: {
       routes: ['/sitemap.xml'],
@@ -370,7 +464,14 @@ jobs:
 cd packages
 npx nuxi@latest init web
 cd web
-pnpm add @nuxt/ui
+
+# 安装 shadcn-vue
+pnpm add -D shadcn-nuxt
+pnpm dlx shadcn-vue@latest init
+
+# 添加常用组件
+pnpm dlx shadcn-vue@latest add button card input select badge
+
 pnpm dev  # 啟動開發伺服器
 ```
 
@@ -484,16 +585,25 @@ test('user can subscribe to calendar', async ({ page }) => {
 
 ### 色彩主題
 
-使用 Nuxt UI 的主題系統：
+使用 shadcn-vue 的主題系統（基於 CSS 變量）：
 
-```typescript
-// nuxt.config.ts
-export default defineNuxtConfig({
-  ui: {
-    primary: 'blue',
-    gray: 'slate',
-  },
-});
+```css
+/* assets/css/tailwind.css */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    /* 更多主題變量... */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    /* 暗色模式變量... */
+  }
+}
 ```
 
 ### 響應式設計
@@ -573,9 +683,12 @@ export default defineNuxtConfig({
 ## 📚 相關文件
 
 - [Nuxt 4 文件](https://nuxt.com/)
-- [Nuxt UI 文件](https://ui.nuxt.com/)
+- [shadcn-vue 文件](https://www.shadcn-vue.com/)
+- [Radix Vue 文件](https://www.radix-vue.com/)
+- [Tailwind CSS 文件](https://tailwindcss.com/)
 - [資料格式規範](../technical/DATA-SCHEMA.md)
 - [開發指南](../DEVELOPMENT-GUIDE.md)
+- [UI 框架遷移計劃](../MIGRATION-NUXT-UI-TO-SHADCN-VUE.md)
 
 ---
 
