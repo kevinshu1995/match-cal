@@ -47,7 +47,7 @@ docs/
 │   ├── TDD-WORKFLOW.md
 │   └── COMMIT-CONVENTION.md
 │
-└── MIGRATION-NUXT-UI-TO-SHADCN-VUE.md  ← UI 框架遷移計劃
+└── UI-FRAMEWORK-SHADCN-VUE.md  ← UI 框架規劃說明
 ```
 
 ---

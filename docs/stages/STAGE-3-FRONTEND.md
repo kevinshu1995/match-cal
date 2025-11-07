@@ -688,7 +688,7 @@ export default defineNuxtConfig({
 - [Tailwind CSS 文件](https://tailwindcss.com/)
 - [資料格式規範](../technical/DATA-SCHEMA.md)
 - [開發指南](../DEVELOPMENT-GUIDE.md)
-- [UI 框架遷移計劃](../MIGRATION-NUXT-UI-TO-SHADCN-VUE.md)
+- [UI 框架規劃說明](../UI-FRAMEWORK-SHADCN-VUE.md)
 
 ---
 
