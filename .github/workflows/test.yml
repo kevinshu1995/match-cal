@@ -1,0 +1,69 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      # TODO: 添加 ESLint 配置後啟用 linter
+      # - name: Run linter
+      #   run: pnpm lint
+
+      - name: Run tests with coverage
+        run: pnpm test:coverage
+
+      - name: Display coverage summary
+        if: always()
+        run: |
+          echo "## Test Coverage Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f coverage/coverage-summary.json ]; then
+            echo "覆蓋率報告已生成" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "未找到覆蓋率報告" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            if (context.eventName === 'pull_request') {
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: '🚨 測試或 Lint 檢查失敗，請檢查 [workflow logs](' +
+                      `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})。`
+              });
+            } else {
+              github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🚨 測試失敗 (main branch)',
+                body: `測試或 Lint 檢查失敗，請檢查 [workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})。\n\n**執行時間**：${new Date().toISOString()}\n**分支**：${context.ref}`,
+                labels: ['automation', 'test', 'bug']
+              });
+            }
