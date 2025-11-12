@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'packages/web/**'
+      - 'data/**'
   workflow_dispatch: # 允許手動觸發
 
 # 設定 GITHUB_TOKEN 的權限以允許部署到 GitHub Pages
@@ -10,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 # 只允許一個同時進行的部署
 concurrency:
@@ -51,6 +55,19 @@ jobs:
         with:
           path: './packages/web/.output/public'
 
+      - name: Notify on build failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 網站建置失敗',
+              body: `網站建置過程失敗，請檢查 [workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})。\n\n**執行時間**：${new Date().toISOString()}\n**分支**：${context.ref}`,
+              labels: ['automation', 'build', 'bug']
+            })
+
   deploy:
     environment:
       name: github-pages
@@ -62,3 +79,16 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 部署失敗',
+              body: `網站建置或部署失敗，請檢查 [workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})。\n\n**執行時間**：${new Date().toISOString()}\n**分支**：${context.ref}`,
+              labels: ['automation', 'deployment', 'bug']
+            })
