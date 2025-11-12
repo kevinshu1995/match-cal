@@ -6,6 +6,10 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch: # 允許手動觸發
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest

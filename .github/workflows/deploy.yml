@@ -13,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 # 只允許一個同時進行的部署
 concurrency:
