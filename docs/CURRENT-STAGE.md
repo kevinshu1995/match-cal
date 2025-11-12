@@ -8,19 +8,33 @@
 
 **階段名稱**：階段 3 - web 前端
 **開始日期**：2025-11-07
-**完成日期**：待定
-**狀態**：🔄 進行中
+**完成日期**：2025-11-12
+**狀態**：✅ 基本完成（待補充測試）
 
 ### 本階段目標
 
 建立 Nuxt 4 前端網站，展示賽事資料並提供訂閱功能。
 
 **主要任務**：
-- [ ] 建立 Nuxt 4 專案結構
-- [ ] 實作賽事列表頁面
-- [ ] 實作賽事詳情頁面
-- [ ] 實作 ICS 訂閱功能
-- [ ] 實作篩選與搜尋功能
+- [x] 建立 Nuxt 4 專案結構
+- [x] 實作賽事列表頁面
+- [x] 實作賽事詳情頁面
+- [x] 實作 ICS 訂閱功能
+- [x] 實作篩選與搜尋功能
+- [x] 設定測試環境（Vitest）
+- [x] 編寫 useEvents composable 測試
+- [x] 建立 GitHub Actions 自動化工作流程
+- [x] 建立 GitHub Pages 部署設定
+- [ ] 補充更多元件測試（目標覆蓋率 ≥ 70%）
+
+**目前狀態**：
+- ✅ 所有核心功能已完成並可正常運作
+- ✅ 專案建置成功（SSG）
+- ✅ 測試環境已設定
+- ✅ useEvents 測試完成（17/17 通過）
+- ⏸️ 測試覆蓋率：26.26%（待補充元件測試）
+- ✅ GitHub Actions 工作流程已建立
+- ✅ GitHub Pages 部署設定完成
 
 ### 相關文件
 
@@ -135,18 +149,36 @@
 | 1-3 | ics-generator | ✅ 已完成 | 4 天 |
 | 2 | scraper-bwf (mock) | ✅ 已完成 | 1 天 |
 | 2.1 | scraper-bwf (真實 API) | ✅ 已完成 | 1 天 |
-| 3 | web | ⏸️ 未開始 | 10 天 |
+| 3 | web | ✅ 基本完成 | 5 天 |
 | 4 | automation | ⏸️ 未開始 | 5 天 |
 
 **總進度**：
 - ✅ 階段 1 完成（基礎設施層）
 - ✅ 階段 2 完成（第一個爬蟲 - mock 資料）
 - ✅ 階段 2.1 完成（BWF 爬蟲修正 - 真實 API）
-- ⏸️ 階段 3 待開始（前端網站）
+- ✅ 階段 3 基本完成（前端網站 - 待補充測試）
 
 ---
 
 ## 📝 更新記錄
+
+### 2025-11-12
+- 🎉 **階段 3 基本完成：web 前端開發**
+- ✅ 設定 Vitest 測試環境
+  - 安裝 vitest、@vue/test-utils、happy-dom
+  - 建立 vitest.config.ts 配置檔案
+  - 配置 unplugin-auto-import 支援 Vue API 自動導入
+  - 添加測試腳本（test, test:ui, test:coverage）
+- ✅ 編寫 useEvents composable 完整測試
+  - 17 個測試案例全部通過
+  - 涵蓋 fetchEvents、filterEvents、sortByDate、getEventById 等功能
+- ✅ 建立 GitHub Actions 自動化工作流程
+  - scraper-bwf.yml：每日自動執行 BWF 爬蟲
+  - deploy.yml：自動部署到 GitHub Pages
+- ✅ 驗證靜態站點生成成功（8 routes prerendered）
+- ⏸️ 測試覆蓋率 26.26%（待補充元件測試以達到 70% 目標）
+- 📝 更新 CURRENT-STAGE.md 標記階段 3 基本完成
+- 🎯 **準備進入階段 4：自動化整合**
 
 ### 2025-11-07（晚上）
 - 🚀 **開始階段 3：web 前端開發**
